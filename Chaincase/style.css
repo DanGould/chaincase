@@ -1,4 +1,36 @@
-﻿.pageHeading {
+﻿body {
+    background-color: #f2f2f3;
+}
+
+.pageHeading {
     font-size:24;
     margin-bottom:32;
+}
+
+.coincard {
+    font-style: italic;
+    text-align: left;
+    border-color: purple;
+    background-color: #F2F2F3;
+}
+
+
+.coincard_amount {
+    font-size: 20;
+}
+
+.coincard_privacy-badge {
+    text-align: right;
+}
+
+.coinlist_empty-label {
+    text-align: center;
+}
+
+.coinjoin_info {
+    text-align: center;
+    font-style: bold;
+    padding: 10 10 10 10;
+    background-color: goldenrod;
+    color: white;
 }

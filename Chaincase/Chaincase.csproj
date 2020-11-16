@@ -35,6 +35,7 @@
     <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
     <PackageReference Include="Splat.Microsoft.Extensions.DependencyInjection" Version="9.6.1" />
+    <PackageReference Include="ReactiveUI.Blazor" Version="12.1.5" />
   </ItemGroup>
 
   <ItemGroup>

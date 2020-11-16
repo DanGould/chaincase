@@ -1,0 +1,42 @@
+﻿@namespace Chaincase.BlazorComponents
+
+@using Chaincase.Views
+@using Chaincase.ViewModels
+
+@inherits ReactiveComponentBase<CoinViewModel>
+
+<StyleSheet Resource="style.css" Assembly="GetType().Assembly" />
+<Frame class="coincard"
+       HasShadow="false"
+       BorderColor="@(ViewModel.IsSelected ? Colors.Chainple : Colors.BorderGray)"
+       VerticalOptions="LayoutOptions.Start">
+    <TapGestureRecognizer OnTapped="@OnCoinCardTapped" />
+    <Grid VerticalOptions="LayoutOptions.Start" RowDefinitions="Auto" ColumnDefinitions="Auto, Auto">
+        <GridCell Row="0" Column="0">
+            <Label class="coincard_amount" VerticalOptions="LayoutOptions.Start" Text="@ViewModel.Amount.ToString()" />
+        </GridCell>
+        <GridCell Row="0" Column="1" ColumnSpan="2">
+            <Label VerticalOptions="LayoutOptions.Start" class="coincard_privacy-badge" Text="🗽" />
+        </GridCell>
+        <GridCell Row="1" Column="0" ColumnSpan="2">
+            <Label VerticalOptions="LayoutOptions.Start" class="coincard_label" Text="@ViewModel.Clusters" />
+        </GridCell>
+    </Grid>
+</Frame>
+
+@code {
+    [Parameter]
+    public CoinViewModel CoinViewModel { get; set; }
+
+    protected override Task OnParametersSetAsync()
+    {
+        ViewModel = CoinViewModel;
+        return base.OnParametersSetAsync();
+    }
+
+    void OnCoinCardTapped()
+    {
+        ViewModel.IsSelected = !ViewModel.IsSelected;
+        StateHasChanged();
+    }
+}

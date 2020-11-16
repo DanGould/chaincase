@@ -12,10 +12,12 @@ using WalletWasabi.Blockchain.Transactions;
 using System.Linq;
 using WalletWasabi.Models;
 using Chaincase.Models;
+using Chaincase.BlazorComponents;
 using WalletWasabi.Logging;
 using NBitcoin;
 using System.Threading;
 using WalletWasabi.Wallets;
+using Microsoft.MobileBlazorBindings;
 
 namespace Chaincase.ViewModels
 {
@@ -95,8 +97,12 @@ namespace Chaincase.ViewModels
 
             NavReceiveCommand = ReactiveCommand.CreateFromObservable(() =>
             {
-                ViewStackService.PushPage(new ReceiveViewModel()).Subscribe();
-                return Observable.Return(Unit.Default);
+				//var x = new ContentPage();
+				//Application.Current.MainPage.Navigation.PushAsync(x);
+				//Global.Host.AddComponent<BlazorComponents.CoinList>(parent: x);
+				//ViewStackService.PushPage(new BlazorViewModel()).Subscribe();
+				ViewStackService.PushPage(new ReceiveViewModel()).Subscribe();
+				return Observable.Return(Unit.Default);
             });
 
             InitCoinJoin = ReactiveCommand.CreateFromObservable(() =>

@@ -1,0 +1,40 @@
+﻿@namespace Chaincase.BlazorComponents
+
+@using Chaincase.Views
+@using Chaincase.ViewModels
+
+@inherits ReactiveComponentBase<CoinJoinViewModel>
+
+<ContentPage>
+    <StackLayout>
+        <CoinList CoinListViewModel="@ViewModel.CoinList" />
+        <Label cass="coinjoin-info"
+               Text="Open the app to sign when you get a notification" />
+
+        @*<Label Text="{Binding RequiredBTC, StringFormat='₿ {0} required to CoinJoin'}" />
+        <Label x:Name="PhaseLabel" />
+        <Label x:Name="TimeLeftLabel" />
+        <Label Text="{Binding PeersNeeded, StringFormat='Joining with at least {0} peers'}" />
+        <Label Text="{Binding PeersRegistered, StringFormat='{0} peers registered'}" />
+        <Label Text="{Binding CoordinatorFeePercent, StringFormat='Coordinator Fee: {0}% per anonymity set'}" />*@
+
+        <Button Text="COINJOIN SELECTED"
+                @onclick="@ViewModel.CoinJoinCommand.Execute()" />
+        <Button Text="EXIT COINJOIN"
+                @onclick="@ViewModel.ExitCoinJoinCommand.Execute()" />
+        @*<controls:NeuButton Text="COINJOIN SELECTED"
+                            x:Name="CoinJoinButton"
+                            VerticalOptions="End" />
+        <controls:NeuButton Text="EXIT COINJOIN"
+                            x:Name="ExitButton"
+                            VerticalOptions="End" />*@
+    </StackLayout>
+</ContentPage>
+
+@code {
+    public CoinJoinComponentPage(CoinJoinViewModel vm)
+    {
+        ViewModel = vm;
+    }
+}
+

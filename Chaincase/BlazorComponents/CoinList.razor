@@ -1,0 +1,30 @@
+﻿@namespace Chaincase.BlazorComponents
+
+@using Chaincase.Views
+@using Chaincase.ViewModels
+
+@inherits ReactiveComponentBase<CoinListViewModel>
+
+<StyleSheet Resource="style.css" Assembly="GetType().Assembly" />
+<StackLayout class="coinlist">
+    @if (!ViewModel.CoinList.Any()) {
+        <Label class="coinlist_empty-label"
+           Text="Your coins will appear here" />
+    }
+
+    @foreach (var coin in ViewModel.CoinList)
+    {
+        <CoinCard CoinViewModel="@coin" />
+    }
+</StackLayout>
+
+@code {
+    [Parameter]
+    public CoinListViewModel CoinListViewModel { get; set; }
+
+    protected override Task OnParametersSetAsync()
+    {
+        ViewModel = CoinListViewModel;
+        return base.OnParametersSetAsync();
+    }
+}
