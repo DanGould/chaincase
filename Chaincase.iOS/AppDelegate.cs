@@ -29,7 +29,6 @@ namespace Chaincase.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
-            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             var formsApp = new BlazorApp(fileProvider: null, ConfigureDi);
             var serviceProvider = formsApp.ServiceProvider;
 
